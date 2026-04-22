@@ -3,143 +3,455 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
-  <title>Oscar Guerrero | Asesor Comercial</title>
-  <meta name="description" content="Portafolio profesional para asesor comercial: servicios, resultados y contacto directo." />
+  <title>Oscar Guerrero | Limpieza Profesional y Detailing</title>
+  <meta name="description" content="Lavado de muebles hogar/oficina, detailing vehicular, servicios para flotas y venta de productos de aseo. Atención inmediata por WhatsApp." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Prata&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Prata&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
+  <div class="intro-screen" id="intro-screen" aria-hidden="true">
+    <div class="intro-eye" aria-hidden="true">
+      <span class="eye-shape"></span>
+      <span class="eye-pupil"></span>
+      <span class="eye-shine"></span>
+    </div>
+    <p>Oscar Guerrero</p>
+  </div>
+
   <div class="backdrop" aria-hidden="true"></div>
   <div class="nav-scrim" aria-hidden="true"></div>
 
   <header class="site-header" id="top">
     <div class="container nav-wrap">
-      <a href="#top" class="brand" aria-label="Oscar Guerrero inicio">
+      <a href="#top" class="brand" aria-label="Ir al inicio">
         <img src="./logo.png" alt="Oscar Guerrero" class="brand-logo" />
       </a>
+
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">
         <span></span>
         <span></span>
         <span></span>
       </button>
+
       <nav class="nav" id="main-nav" aria-label="Principal">
-        <a href="#servicios">Servicios</a>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#metodo">Método</a>
-        <a href="#resultados">Resultados</a>
+        <a href="#soluciones">Soluciones</a>
+        <a href="#empresas">Empresas</a>
         <a href="#contacto">Contacto</a>
       </nav>
-      <a class="btn btn-outline" href="#contacto">Agenda una llamada</a>
+
+      <a class="btn btn-outline" href="https://wa.me/573203851590?text=Hola%20Oscar,%20quiero%20informaci%C3%B3n%20de%20tus%20servicios" target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </div>
   </header>
 
+  <button class="mode-fab" id="mode-toggle" type="button" aria-pressed="false" aria-label="Cambiar entre servicios y tienda">
+    <span class="mode-fab-icon shop-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <path d="M3 6.8 12 3l9 3.8V9H3V6.8Zm1.8 3.4h14.4v9.2H4.8v-9.2Zm3.2 2.2v5h2.1v-5H8Zm5.9 0v5H16v-5h-2.1Z"/>
+      </svg>
+    </span>
+    <span class="mode-fab-icon service-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <path d="M4 4h16v3H4V4Zm0 6h16v3H4v-3Zm0 6h10v3H4v-3Z"/>
+      </svg>
+    </span>
+    <strong>Tienda</strong>
+  </button>
+
+  <div class="mode-transition" aria-hidden="true">
+    <span class="door left"></span>
+    <span class="door right"></span>
+  </div>
+
   <main>
-    <section class="section" id="sobre-mi">
+    <section class="section intro-about mode-home" id="sobre-mi">
       <div class="container about-grid">
         <article class="about-copy reveal">
           <p class="overline">SOBRE MÍ</p>
-          <h2 class="section-title">Soy Oscar Guerrero, asesor comercial enfocado en resultados reales.</h2>
+          <h2 class="section-title">Soy Oscar Guerrero y convierto limpieza profesional en resultados visibles.</h2>
           <p>
-            Ayudo a empresas y profesionales a vender con más claridad, estructura y mejores cierres.
+            Acompaño hogares, oficinas y empresas con soluciones de lavado y detailing de alto estándar.
           </p>
           <p>
-            Mi enfoque es simple: estrategia concreta, ejecución disciplinada y resultados medibles.
+            Trabajo con enfoque técnico, cumplimiento y excelente presentación final para que cada servicio se traduzca en confianza y recomendación.
           </p>
+          <div class="about-tags">
+            <span>Hogar</span>
+            <span>Empresas</span>
+            <span>Flotas</span>
+          </div>
         </article>
+
         <aside class="about-panel reveal-delay">
-          <div class="profile-photo-slot" aria-label="Espacio reservado para foto de perfil">
-            <span>Foto de Perfil</span>
+          <div class="profile-photo-slot" aria-label="Espacio reservado para foto de Oscar Guerrero">
+            <span>Foto de Oscar</span>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="section services-spotlight" id="servicios">
-      <div class="container">
-        <div class="services-head reveal">
-          <div>
-            <p class="overline">SERVICIOS PRINCIPALES</p>
-            <h2 class="section-title">Servicios diseñados para vender mejor, sin improvisar.</h2>
+    <section class="hero section mode-home">
+      <div class="container hero-grid">
+        <article class="hero-copy reveal">
+          <p class="overline">LIMPIEZA PROFESIONAL Y DETAILING</p>
+          <h1>Vendemos resultados visibles en muebles, oficinas y vehículos.</h1>
+          <p>
+            Lavado profesional para hogar y empresa, detailing vehicular y atención de cuentas corporativas.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="#cotizar">Quiero cotizar</a>
+            <a class="btn btn-text" href="https://wa.me/573203851590?text=Hola%20Oscar,%20quiero%20agendar%20una%20asesor%C3%ADa" target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
           </div>
-          <a class="btn btn-solid" href="#contacto">Quiero una propuesta</a>
-        </div>
+        </article>
 
-        <div class="service-grid">
-          <article class="service-card featured reveal">
-            <p class="service-badge">Servicio destacado</p>
-            <h3>Consultoría Comercial</h3>
-            <p>Diagnóstico de ventas y plan de acción para mejorar conversión en corto plazo.</p>
-            <a class="btn btn-outline service-cta" href="#contacto">Agendar diagnóstico</a>
-          </article>
-          <article class="service-card reveal">
-            <p class="service-badge">Entrenamiento</p>
-            <h3>Entrenamiento de Equipos</h3>
-            <p>Capacitación práctica para prospectar mejor, manejar objeciones y cerrar con seguridad.</p>
-            <a class="btn btn-outline service-cta" href="#contacto">Solicitar entrenamiento</a>
-          </article>
-          <article class="service-card reveal">
-            <p class="service-badge">Optimización</p>
-            <h3>Estrategia de Conversión</h3>
-            <p>Optimización del proceso comercial para aumentar oportunidades y cerrar más negocios.</p>
-            <a class="btn btn-outline service-cta" href="#contacto">Potenciar conversión</a>
-          </article>
-        </div>
+        <aside class="hero-panel reveal-delay">
+          <p class="panel-title">Resultados</p>
+          <div class="kpi-list">
+            <article>
+              <h3 class="counter" data-target="500">0</h3>
+              <p>Puestos / sillas (call center)</p>
+            </article>
+            <article>
+              <h3 class="counter" data-target="45">0</h3>
+              <p>Vehículos tipo Duster</p>
+            </article>
+            <article>
+              <h3 class="counter" data-target="10" data-prefix="<" data-suffix=" min">0</h3>
+              <p>Tiempo de respuesta inicial</p>
+            </article>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section class="section contrast" id="metodo">
+    <section class="section cotizar-full mode-home" id="cotizar">
       <div class="container">
-        <p class="overline">METODOLOGÍA</p>
-        <h2 class="section-title reveal">Un proceso preciso para resultados medibles.</h2>
-        <div class="timeline">
-          <article class="step reveal">
-            <span>01</span>
-            <h3>Diagnóstico</h3>
-            <p>Analizo situación actual y oportunidades de mejora.</p>
-          </article>
-          <article class="step reveal">
-            <span>02</span>
-            <h3>Plan Comercial</h3>
-            <p>Defino ruta de acción y prioridades de ejecución.</p>
-          </article>
-          <article class="step reveal">
-            <span>03</span>
-            <h3>Implementación</h3>
-            <p>Ejecutamos, medimos y optimizamos para escalar resultados.</p>
-          </article>
+        <p class="overline">EMBUDO RÁPIDO</p>
+        <h2 class="section-title reveal">¿Qué necesitas hoy?</h2>
+        <div class="service-carousel reveal" aria-label="Carrusel de servicios">
+          <div class="carousel-track">
+            <article class="carousel-slide muebles is-active">
+              <div class="slide-content">
+                <h3>Lavado de muebles</h3>
+                <button class="btn btn-outline wa-option" data-message="Hola Oscar, necesito cotizar lavado de muebles para hogar/oficina.">Solicitar servicio</button>
+              </div>
+            </article>
+
+            <article class="carousel-slide empresarial">
+              <div class="slide-content">
+                <h3>Servicio empresarial</h3>
+                <button class="btn btn-outline wa-option" data-message="Hola Oscar, quiero una propuesta empresarial para limpieza de puestos/sillas.">Solicitar servicio</button>
+              </div>
+            </article>
+
+            <article class="carousel-slide detailing">
+              <div class="slide-content">
+                <h3>Detailing vehicular</h3>
+                <button class="btn btn-outline wa-option" data-message="Hola Oscar, quiero cotizar detailing para mi carro o flota.">Solicitar servicio</button>
+              </div>
+            </article>
+          </div>
+
+          <button class="carousel-arrow prev" type="button" aria-label="Servicio anterior">
+            <span aria-hidden="true">&#8249;</span>
+          </button>
+          <button class="carousel-arrow next" type="button" aria-label="Siguiente servicio">
+            <span aria-hidden="true">&#8250;</span>
+          </button>
         </div>
       </div>
     </section>
 
-    <section class="section" id="resultados">
-      <div class="container">
-        <p class="overline">RESULTADOS</p>
-        <h2 class="section-title reveal">Lo que dicen quienes ya confiaron.</h2>
-        <div class="grid one">
-          <blockquote class="testimonial reveal">
-            “En pocas semanas pasamos de vender por intuición a vender con un sistema claro.”
-            <cite>Gerente Comercial, sector B2B</cite>
-          </blockquote>
-        </div>
+    <section class="section contrast mode-home" id="soluciones">
+      <div class="container split-grid">
+        <article class="panel reveal">
+          <p class="overline">SOLUCIONES</p>
+          <h2 class="section-title">Soluciones de limpieza para hogar, empresa y vehículos.</h2>
+          <ul class="check-list">
+            <li>Lavado de salas, comedores, colchones y muebles de oficina.</li>
+            <li>Limpieza técnica de sillas operativas y puestos de trabajo.</li>
+            <li>Detailing interior/exterior y venta de productos de aseo.</li>
+          </ul>
+        </article>
+
+        <article class="panel reveal-delay" id="empresas">
+          <p class="overline">CUENTAS CORPORATIVAS</p>
+          <h2 class="section-title">Ejecución por lotes para empresas y flotas.</h2>
+          <ul class="check-list">
+            <li>Operación por agenda y bloques de trabajo.</li>
+            <li>Atención de alto volumen con control de calidad.</li>
+            <li>Canal directo por WhatsApp para seguimiento.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
-    <section class="section cta" id="contacto">
+    <section class="section mode-home" id="contacto">
       <div class="container cta-wrap reveal">
-        <div>
-          <p class="overline">CONTACTO</p>
-          <h2 class="section-title">¿Quieres vender con más estructura y mejores cierres?</h2>
-          <p>Agenda una llamada estratégica y revisamos tu caso.</p>
-        </div>
-        <div class="cta-actions">
-          <a class="btn btn-solid" href="https://wa.me/573203851590" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <article class="contact-copy">
+          <p class="overline">CONTACTO RÁPIDO</p>
+          <h2 class="section-title">Envíame lo que necesitas y te respondo por WhatsApp.</h2>
+          <p>Respuesta rápida para cotizar y agendar.</p>
+          <div class="contact-pills">
+            <span>Cotización rápida</span>
+            <span>Respuesta por WhatsApp</span>
+            <span>Atención personalizada</span>
+          </div>
+        </article>
+
+        <form id="lead-form" class="lead-form" aria-label="Formulario de cotización">
+          <label for="servicio">¿Qué necesitas?</label>
+          <select id="servicio" name="servicio" required>
+            <option value="">Selecciona una opción</option>
+            <option>Lavado de muebles hogar</option>
+            <option>Lavado de muebles oficina</option>
+            <option>Limpieza de sillas / puestos call center</option>
+            <option>Detailing de vehículo</option>
+            <option>Atención de flota vehicular</option>
+            <option>Compra de productos de aseo</option>
+          </select>
+
+          <div class="location-fixed" aria-label="Zona de cobertura">
+            <span class="location-label">Cobertura</span>
+            <strong>Pereira</strong>
+          </div>
+
+          <label for="descripcion">Descripción del servicio</label>
+          <textarea id="descripcion" name="descripcion" rows="3" placeholder="Cuéntame qué necesitas: tipo de servicio, cantidad aproximada, estado actual y cualquier detalle importante."></textarea>
+
+          <button type="submit" class="btn btn-solid">Enviar por WhatsApp</button>
           <a class="btn btn-outline" href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@oscarguerrero.com&su=Consulta%20de%20servicios%20comerciales" target="_blank" rel="noopener noreferrer">contacto@oscarguerrero.com</a>
+        </form>
+      </div>
+    </section>
+
+    <section class="section shop-hero mode-shop" id="tienda" aria-hidden="true">
+      <div class="container">
+        <article class="shop-banner reveal">
+          <div class="shop-banner-copy">
+            <p class="overline">TIENDA DE ASEO</p>
+            <h2 class="section-title">Compra productos clave de aseo con atención inmediata por WhatsApp.</h2>
+            <p>Catálogo práctico para hogar, oficina y limpieza vehicular en Pereira.</p>
+            <div class="hero-actions">
+              <a class="btn btn-solid" href="#shop-list">Ver productos</a>
+              <a class="btn btn-text" href="https://wa.me/573203851590?text=Hola%20Oscar,%20quiero%20asesor%C3%ADa%20para%20comprar%20productos%20de%20aseo" target="_blank" rel="noopener noreferrer">Asesoría de compra</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section mode-shop" id="shop-list" aria-hidden="true">
+      <div class="container shop-layout">
+        <div class="shop-grid">
+          <article class="shop-item reveal">
+          <img src="./assets/catalog/desengrasante-multiusos.svg" alt="Desengrasante multiusos" />
+          <div class="shop-item-body">
+            <h3>Desengrasante Multiusos 1L</h3>
+            <p class="price">$24.900 COP</p>
+            <p>Cocina, baños y superficies lavables.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+          </article>
+          <article class="shop-item reveal-delay">
+          <img src="./assets/catalog/limpiavidrios-pro.svg" alt="Limpiavidrios profesional" />
+          <div class="shop-item-body">
+            <h3>Limpiavidrios Profesional 750ml</h3>
+            <p class="price">$18.500 COP</p>
+            <p>Acabado sin marcas para vidrios y espejos.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal">
+          <img src="./assets/catalog/espuma-tapiceria.svg" alt="Espuma de tapicería" />
+          <div class="shop-item-body">
+            <h3>Espuma Tapicería Activa 650ml</h3>
+            <p class="price">$29.900 COP</p>
+            <p>Ideal para muebles, sillas y superficies textiles.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal-delay">
+          <img src="./assets/catalog/shampoo-vehicular.svg" alt="Shampoo detailing" />
+          <div class="shop-item-body">
+            <h3>Shampoo Vehicular pH Neutro 1L</h3>
+            <p class="price">$32.000 COP</p>
+            <p>Limpieza segura para pintura y acabados.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal">
+          <img src="./assets/catalog/desinfectante.svg" alt="Desinfectante concentrado" />
+          <div class="shop-item-body">
+            <h3>Desinfectante Concentrado 1L</h3>
+            <p class="price">$21.500 COP</p>
+            <p>Control de olores y desinfección diaria.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal-delay">
+          <img src="./assets/catalog/microfibra.svg" alt="Paño microfibra premium" />
+          <div class="shop-item-body">
+            <h3>Paño Microfibra Premium x3</h3>
+            <p class="price">$19.000 COP</p>
+            <p>Absorción alta para limpieza fina y detailing.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal">
+          <img src="./assets/catalog/guantes.svg" alt="Guantes para aseo" />
+          <div class="shop-item-body">
+            <h3>Guantes Resistentes x2 pares</h3>
+            <p class="price">$12.900 COP</p>
+            <p>Protección para limpieza doméstica y técnica.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal-delay">
+          <img src="./assets/catalog/detergente.svg" alt="Detergente líquido" />
+          <div class="shop-item-body">
+            <h3>Detergente Líquido 2L</h3>
+            <p class="price">$26.000 COP</p>
+            <p>Limpieza profunda para ropa y textiles de uso diario.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal">
+          <img src="./assets/catalog/jabon-antibacterial.svg" alt="Jabón antibacterial" />
+          <div class="shop-item-body">
+            <h3>Jabón Antibacterial 1L</h3>
+            <p class="price">$15.800 COP</p>
+            <p>Ideal para cocina, baño y puntos de contacto.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal-delay">
+          <img src="./assets/catalog/limpiador-pisos.svg" alt="Limpiador de pisos" />
+          <div class="shop-item-body">
+            <h3>Limpiador de Pisos 2L</h3>
+            <p class="price">$22.500 COP</p>
+            <p>Fragancia suave y secado rápido sin marcas.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal">
+          <img src="./assets/catalog/ambientador.svg" alt="Ambientador profesional" />
+          <div class="shop-item-body">
+            <h3>Ambientador Profesional 400ml</h3>
+            <p class="price">$14.900 COP</p>
+            <p>Controla olores en oficinas, salas y habitaciones.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal-delay">
+          <img src="./assets/catalog/cepillo.svg" alt="Cepillo de cerdas" />
+          <div class="shop-item-body">
+            <h3>Cepillo de Cerdas Pro</h3>
+            <p class="price">$11.400 COP</p>
+            <p>Para tapicería, rincones y zonas de difícil acceso.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal">
+          <img src="./assets/catalog/kit-basico.svg" alt="Kit balde y accesorios" />
+          <div class="shop-item-body">
+            <h3>Kit Básico de Aseo</h3>
+            <p class="price">$39.900 COP</p>
+            <p>Balde, atomizador y paños para trabajo diario.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal-delay">
+          <img src="./assets/catalog/alcohol.svg" alt="Alcohol antibacterial" />
+          <div class="shop-item-body">
+            <h3>Alcohol Antibacterial 1L</h3>
+            <p class="price">$13.900 COP</p>
+            <p>Desinfección rápida para superficies y herramientas.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal">
+          <img src="./assets/catalog/esponjas.svg" alt="Esponjas de limpieza" />
+          <div class="shop-item-body">
+            <h3>Esponjas de Alto Rendimiento x6</h3>
+            <p class="price">$9.500 COP</p>
+            <p>Mayor durabilidad para cocina y baño.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal-delay">
+          <img src="./assets/catalog/limpiador-interior.svg" alt="Limpiador interior vehicular" />
+          <div class="shop-item-body">
+            <h3>Limpiador Interior Vehicular 500ml</h3>
+            <p class="price">$23.700 COP</p>
+            <p>Para tablero, puertas y plásticos internos.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal">
+          <img src="./assets/catalog/cera-liquida.svg" alt="Cera líquida vehicular" />
+          <div class="shop-item-body">
+            <h3>Cera Líquida Brillo Total 500ml</h3>
+            <p class="price">$28.300 COP</p>
+            <p>Realza color y protege pintura del vehículo.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal-delay">
+          <img src="./assets/catalog/atomizador.svg" alt="Atomizador profesional" />
+          <div class="shop-item-body">
+            <h3>Atomizador Profesional 1L</h3>
+            <p class="price">$10.800 COP</p>
+            <p>Pulverización uniforme para químicos y diluciones.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+        </article>
+        <article class="shop-item reveal">
+          <img src="./assets/catalog/kit-empresarial.svg" alt="Kit empresarial de aseo" />
+          <div class="shop-item-body">
+            <h3>Kit Empresarial x10 Referencias</h3>
+            <p class="price">$259.000 COP</p>
+            <p>Pack para oficinas, sedes y operación continua.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+          </article>
+          <article class="shop-item reveal-delay">
+          <img src="./assets/catalog/espuma-activa.svg" alt="Espuma activa vehicular" />
+          <div class="shop-item-body">
+            <h3>Espuma Activa Vehicular 1L</h3>
+            <p class="price">$31.500 COP</p>
+            <p>Desprende suciedad adherida sin maltratar la pintura.</p>
+            <button class="btn btn-outline add-cart">Agregar</button>
+          </div>
+          </article>
         </div>
+        <aside class="shop-cart reveal" id="shop-cart" aria-live="polite">
+        <div class="shop-cart-head">
+          <p class="overline">Carrito</p>
+          <strong id="cart-count">0 productos</strong>
+        </div>
+        <ul class="shop-cart-list" id="cart-items">
+          <li class="empty">Aún no agregas productos.</li>
+        </ul>
+        <div class="shop-cart-foot">
+          <p>Total estimado</p>
+          <strong id="cart-total">$0 COP</strong>
+        </div>
+        <div class="shop-cart-actions">
+          <button class="btn btn-outline" id="cart-clear" type="button">Vaciar</button>
+          <button class="btn btn-solid" id="cart-checkout" type="button">Comprar por WhatsApp</button>
+        </div>
+        </aside>
       </div>
     </section>
   </main>
+
+  <a class="wa-float" href="https://wa.me/573203851590?text=Hola%20Oscar,%20quiero%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M20.52 3.48A11.82 11.82 0 0 0 12.08 0C5.52 0 .18 5.34.18 11.9c0 2.1.55 4.16 1.6 5.98L0 24l6.3-1.66a11.86 11.86 0 0 0 5.68 1.45h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.16-3.37-8.41ZM12 21.77h-.01a9.85 9.85 0 0 1-5.02-1.38l-.36-.21-3.74.98 1-3.64-.24-.37a9.8 9.8 0 0 1-1.54-5.24c0-5.44 4.43-9.87 9.88-9.87a9.8 9.8 0 0 1 6.98 2.89 9.8 9.8 0 0 1 2.89 6.98c0 5.44-4.43 9.86-9.86 9.86Zm5.42-7.4c-.3-.16-1.75-.87-2.02-.97-.27-.1-.47-.16-.67.16-.2.3-.77.97-.95 1.17-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.62.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.16-.67-1.62-.92-2.22-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.23 5.13 4.53.72.3 1.28.48 1.72.62.73.23 1.4.2 1.93.12.59-.08 1.75-.72 2-1.42.24-.7.24-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+    </svg>
+  </a>
 
   <footer class="site-footer">
     <div class="container footer-wrap">
@@ -151,3 +463,5 @@
   <script src="./script.js"></script>
 </body>
 </html>
+
+
