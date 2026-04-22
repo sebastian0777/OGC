@@ -44,7 +44,6 @@ body {
   z-index: 120;
   display: grid;
   place-items: center;
-  gap: 0.75rem;
   background: radial-gradient(circle at 50% 30%, rgba(244, 252, 247, 0.98) 0%, rgba(228, 241, 231, 0.98) 50%, rgba(212, 231, 218, 0.98) 100%);
   transition: opacity 380ms ease, visibility 380ms ease;
 }
@@ -55,51 +54,76 @@ body {
   pointer-events: none;
 }
 
-.intro-screen p {
-  margin: 0;
-  font-family: "Prata", serif;
-  font-size: 1rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: #275341;
-}
-
-.intro-eye {
-  position: relative;
-  width: 98px;
-  height: 56px;
-}
-
-.eye-shape {
+.intro-celebration {
   position: absolute;
   inset: 0;
-  border: 2px solid rgba(29, 69, 52, 0.9);
-  border-radius: 999px;
-  background: rgba(247, 253, 249, 0.78);
-  animation: eyeOpen 1.58s ease-in-out both;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-.eye-pupil {
+.spark {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 17px;
-  height: 17px;
-  margin: -8.5px 0 0 -8.5px;
+  width: 8px;
+  height: 8px;
   border-radius: 999px;
-  background: #1b4f39;
-  animation: eyeLook 1.58s ease-in-out both;
+  background: radial-gradient(circle at 35% 35%, #f5fff9 0%, #82c7a3 48%, rgba(130, 199, 163, 0) 72%);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.2);
+  animation: salesSpark 1.72s cubic-bezier(0.18, 0.72, 0.16, 1) both;
 }
 
-.eye-shine {
+.spark.s1 { --x: -260px; --y: -138px; --d: 0.06s; }
+.spark.s2 { --x: -190px; --y: -190px; --d: 0.12s; }
+.spark.s3 { --x: -90px; --y: -230px; --d: 0.18s; }
+.spark.s4 { --x: 80px; --y: -225px; --d: 0.24s; }
+.spark.s5 { --x: 186px; --y: -178px; --d: 0.3s; }
+.spark.s6 { --x: 262px; --y: -124px; --d: 0.36s; }
+.spark.s7 { --x: -280px; --y: 84px; --d: 0.42s; }
+.spark.s8 { --x: -184px; --y: 160px; --d: 0.48s; }
+.spark.s9 { --x: -62px; --y: 208px; --d: 0.54s; }
+.spark.s10 { --x: 72px; --y: 198px; --d: 0.6s; }
+.spark.s11 { --x: 196px; --y: 150px; --d: 0.66s; }
+.spark.s12 { --x: 286px; --y: 76px; --d: 0.72s; }
+
+.spark {
+  animation-delay: var(--d);
+}
+
+.boom-ring,
+.boom-flash {
   position: absolute;
-  left: 57%;
-  top: 42%;
-  width: 5px;
-  height: 5px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.boom-ring {
+  width: 28px;
+  height: 28px;
   border-radius: 999px;
-  background: rgba(243, 252, 247, 0.95);
-  animation: eyeBlink 1.58s ease-in-out both;
+  border: 2px solid rgba(231, 255, 242, 0.95);
+  box-shadow: 0 0 0 1px rgba(98, 190, 138, 0.45);
+  animation: boomRing 1.72s cubic-bezier(0.18, 0.72, 0.16, 1) both;
+}
+
+.boom-flash {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(245, 255, 250, 0.95) 0%, rgba(194, 242, 214, 0.65) 45%, rgba(194, 242, 214, 0) 78%);
+  animation: boomFlash 1.72s cubic-bezier(0.18, 0.72, 0.16, 1) both;
+}
+
+.intro-logo {
+  width: clamp(220px, 33vw, 420px);
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(18, 54, 40, 0.18));
+  transform-origin: 50% 70%;
+  animation: introSalesReveal 1.72s cubic-bezier(0.18, 0.72, 0.16, 1) both;
 }
 
 .backdrop {
@@ -1322,56 +1346,81 @@ body.shop-mode .mode-shop {
   }
 }
 
-@keyframes eyeOpen {
+@keyframes introSalesReveal {
   0% {
-    transform: scaleY(0.05);
+    transform: perspective(800px) rotateX(24deg) scale(0.72);
     opacity: 0;
   }
-  20% {
-    transform: scaleY(1);
+  26% {
+    transform: perspective(800px) rotateX(0deg) scale(1.04);
     opacity: 1;
   }
-  82% {
-    transform: scaleY(1);
+  48% {
+    transform: perspective(800px) rotateX(0deg) scale(0.98);
+  }
+  68% {
+    transform: perspective(800px) rotateX(0deg) scale(1.02) translateY(-2px);
+  }
+  84% {
+    transform: perspective(800px) rotateX(0deg) scale(1);
     opacity: 1;
   }
   100% {
-    transform: scaleY(0.1);
+    transform: perspective(800px) rotateX(-12deg) scale(0.9);
     opacity: 0;
   }
 }
 
-@keyframes eyeLook {
+@keyframes salesSpark {
   0% {
-    transform: translateX(0) scale(0.7);
     opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
   }
-  18% {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-  }
-  40% {
-    transform: translateX(-10px) scale(1);
+  28% {
+    opacity: 0.95;
+    transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1);
   }
   62% {
-    transform: translateX(10px) scale(1);
-  }
-  82% {
-    transform: translateX(0) scale(1);
-    opacity: 1;
+    opacity: 0.65;
+    transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(0.88);
   }
   100% {
-    transform: translateX(0) scale(0.7);
     opacity: 0;
+    transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(0.5);
   }
 }
 
-@keyframes eyeBlink {
-  0%, 22%, 100% {
+@keyframes boomRing {
+  0%, 56% {
     opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
   }
-  45%, 72% {
+  72% {
     opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  86% {
+    opacity: 0.95;
+    transform: translate(-50%, -50%) scale(8.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(10.8);
+  }
+}
+
+@keyframes boomFlash {
+  0%, 58% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
+  }
+  74% {
+    opacity: 0.95;
+    transform: translate(-50%, -50%) scale(16);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(24);
   }
 }
 
@@ -1516,7 +1565,7 @@ body.shop-mode .mode-shop {
   }
 
   .shop-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .shop-layout {
@@ -1530,31 +1579,47 @@ body.shop-mode .mode-shop {
 
 @media (max-width: 700px) {
   .container {
-    width: min(96%, var(--max));
+    width: min(94%, var(--max));
   }
 
   .nav-wrap {
-    min-height: 62px;
+    min-height: 58px;
   }
 
   .brand-logo {
-    height: clamp(44px, 9vw, 58px);
+    height: clamp(40px, 10vw, 54px);
   }
 
   .nav {
-    top: 64px;
-    width: min(286px, 88vw);
+    top: 58px;
+    width: min(320px, 92vw);
+    padding: 0.55rem 0.75rem;
+  }
+
+  .nav a {
+    padding: 0.54rem 0.08rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.11em;
+  }
+
+  .section {
+    padding: 1.55rem 0;
   }
 
   .overline {
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
   }
 
   .section-title {
-    font-size: clamp(1.02rem, 4.4vw, 1.2rem);
+    font-size: clamp(0.98rem, 4.1vw, 1.14rem);
     max-width: 100%;
     overflow-wrap: anywhere;
+  }
+
+  h1 {
+    font-size: clamp(1.28rem, 6vw, 1.6rem);
+    line-height: 1.14;
   }
 
   .hero-copy p,
@@ -1564,7 +1629,7 @@ body.shop-mode .mode-shop {
   .lead-form input,
   .lead-form select,
   .lead-form textarea {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .contact-copy .section-title {
@@ -1576,7 +1641,22 @@ body.shop-mode .mode-shop {
   }
 
   .profile-photo-slot {
-    min-height: 250px;
+    min-height: 210px;
+  }
+
+  .hero-grid,
+  .about-grid,
+  .split-grid,
+  .cta-wrap {
+    gap: 0.82rem;
+  }
+
+  .about-tags {
+    gap: 0.34rem;
+  }
+
+  .about-tags span {
+    font-size: 0.62rem;
   }
 
   .grid.three,
@@ -1588,28 +1668,51 @@ body.shop-mode .mode-shop {
 
   .shop-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem;
   }
 
   .carousel-track {
-    min-height: 320px;
+    min-height: 272px;
   }
 
   .shop-item img {
-    height: 86px;
+    height: 80px;
+  }
+
+  .shop-item-body {
+    padding: 0.4rem;
+  }
+
+  .shop-item-body h3 {
+    font-size: 0.69rem;
+  }
+
+  .shop-item-body .price {
+    font-size: 0.73rem;
+  }
+
+  .shop-item-body p {
+    font-size: 0.62rem;
+  }
+
+  .shop-item-body .btn {
+    font-size: 0.52rem;
+    padding: 0.24rem 0.36rem;
   }
 
   .slide-content h3 {
-    font-size: 1.12rem;
+    font-size: 0.98rem;
   }
 
   .slide-content {
-    padding: 0.9rem;
+    padding: 0.74rem;
+    gap: 0.45rem;
   }
 
   .carousel-arrow {
-    width: 36px;
-    height: 36px;
-    font-size: 1.45rem;
+    width: 32px;
+    height: 32px;
+    font-size: 1.28rem;
   }
 
   .carousel-arrow.prev {
@@ -1633,37 +1736,71 @@ body.shop-mode .mode-shop {
     align-items: stretch;
   }
 
+  .cta-wrap {
+    padding: 0.8rem;
+    gap: 0.84rem;
+  }
+
+  .lead-form {
+    padding: 0.75rem;
+    gap: 0.42rem;
+  }
+
+  .shop-cart {
+    margin-top: 0.2rem;
+    padding: 0.6rem;
+  }
+
+  .shop-cart-list {
+    max-height: 220px;
+  }
+
   .mode-fab {
-    top: calc(62px + 0.55rem);
-    right: 0.7rem;
-    padding: 0.32rem 0.5rem 0.32rem 0.32rem;
+    top: calc(58px + 0.42rem);
+    right: 0.52rem;
+    padding: 0.28rem 0.42rem 0.28rem 0.28rem;
   }
 
   .mode-fab strong {
-    font-size: 0.72rem;
+    font-size: 0.66rem;
   }
 
   .mode-fab-icon {
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
   }
 
   .mode-fab-icon svg {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .wa-float {
+    width: 48px;
+    height: 48px;
+    right: 0.72rem;
+    bottom: 0.72rem;
+  }
+
+  .wa-float svg {
+    width: 21px;
+    height: 21px;
   }
 
   .footer-wrap {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .intro-screen,
-  .eye-shape,
-  .eye-pupil,
-  .eye-shine,
+  .intro-celebration,
+  .spark,
+  .boom-ring,
+  .boom-flash,
+  .intro-logo,
   .backdrop,
   .brand-logo,
   .service-card,

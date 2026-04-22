@@ -45,7 +45,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 const introScreen = document.getElementById('intro-screen');
 
 if (introScreen) {
-  const introDuration = prefersReducedMotion ? 120 : 1600;
+  const introDuration = prefersReducedMotion ? 120 : 1740;
   window.setTimeout(() => {
     introScreen.classList.add('hidden');
   }, introDuration);
