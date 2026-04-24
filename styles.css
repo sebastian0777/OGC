@@ -2996,8 +2996,43 @@ h1,
 
 /* Landing emphasis updates */
 #ofertas .panel {
+  position: relative;
+  overflow: hidden;
   border-left: 2px solid rgba(50, 237, 146, 0.42);
   background: linear-gradient(120deg, rgba(7, 16, 13, 0.86) 0%, rgba(6, 12, 10, 0.62) 100%);
+}
+
+#ofertas .panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+#ofertas .panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+  opacity: 0.28;
+  filter: saturate(1.05) contrast(0.95);
+}
+
+#ofertas .panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(140deg, rgba(3, 8, 6, 0.74) 0%, rgba(3, 8, 6, 0.52) 58%, rgba(3, 8, 6, 0.7) 100%);
+}
+
+#ofertas .panel:nth-child(1)::before {
+  background-image: url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=80");
+}
+
+#ofertas .panel:nth-child(2)::before {
+  background-image: url("https://images.unsplash.com/photo-1605515298946-d062f2e9da53?auto=format&fit=crop&w=1600&q=80");
 }
 
 #ofertas .panel .btn {
