@@ -274,7 +274,7 @@ if (cartCheckout) {
       'Hola Oscar, quiero completar esta compra de productos de aseo:',
       ...detailLines,
       `Total estimado: ${formatPriceCop(totalValue)}`,
-      'Ciudad: Pereira'
+      'Zona: Pereira / Dosquebradas / Santa Rosa'
     ].join('\n');
 
     openWhatsApp(message);
@@ -292,7 +292,7 @@ if (leadForm) {
 
     const servicio = serviceSelect?.value?.trim() || '';
     const descripcion = document.getElementById('descripcion')?.value?.trim() || 'No especificada';
-    const ciudad = 'Pereira';
+    const ciudad = 'Pereira / Dosquebradas / Santa Rosa';
 
     if (!servicio) {
       document.getElementById('servicio')?.focus();
