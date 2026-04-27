@@ -138,9 +138,9 @@
 
     <section class="section mode-home" id="ofertas">
       <div class="container split-grid">
-        <article class="panel reveal">
+        <article class="panel reveal offer-clickable" data-open-promo="oferta-muebles">
           <p class="overline">OFERTA HOGAR</p>
-          <h2 class="section-title">Servicio de limpieza de muebles y enseres desde $80.000</h2>
+          <h2 class="section-title">Servicio de limpieza de muebles y enseres desde <span class="offer-price">$80.000</span></h2>
           <ul class="check-list">
             <li>Lavado de colchón doble, salas, sillas y alfombras.</li>
             <li>Limpieza profunda con desinfección y olor agradable.</li>
@@ -149,9 +149,9 @@
           <button class="btn btn-solid wa-option" data-message="Hola Oscar, quiero cotizar limpieza de muebles y enseres. Vi la oferta desde $80.000.">Solicitar esta oferta</button>
         </article>
 
-        <article class="panel reveal-delay">
+        <article class="panel reveal-delay offer-clickable" data-open-promo="oferta-detailing">
           <p class="overline">OFERTA DETAILING</p>
-          <h2 class="section-title">Súper combo de detallado automotriz desde $350.000</h2>
+          <h2 class="section-title">Súper combo de detallado automotriz desde <span class="offer-price">$350.000</span></h2>
           <ul class="check-list">
             <li>Lavado de cojinería, alfombra, tapetes y techo.</li>
             <li>Higienización de cabina y ductos de aire.</li>
@@ -303,12 +303,48 @@
               <button class="btn btn-outline add-cart">Agregar</button>
             </div>
           </article>
+          <article class="shop-item reveal">
+            <img src="./assets/catalog/tayco/crema-lavaloza.jpg" alt="Crema lavaloza" />
+            <div class="shop-item-body">
+              <h3>Crema Lavaloza</h3>
+              <p class="price">$14.900 COP</p>
+              <p>Lavaloza en crema para grasa adherida en cocina.</p>
+              <button class="btn btn-outline add-cart">Agregar</button>
+            </div>
+          </article>
           <article class="shop-item reveal-delay">
-            <img src="https://tayco.com.co/wp-content/uploads/2023/05/coffee-product_8-700x792.jpg" alt="Desinfectante multisuperficies" />
+            <img src="./assets/catalog/tayco/desinfectante-multisuperficies.jpg" alt="Desinfectante multisuperficies" />
             <div class="shop-item-body">
               <h3>Desinfectante Multisuperficies</h3>
               <p class="price">$21.900 COP</p>
               <p>Ideal para hogar, oficina y zonas de alto tráfico.</p>
+              <button class="btn btn-outline add-cart">Agregar</button>
+            </div>
+          </article>
+          <article class="shop-item reveal-delay">
+            <img src="./assets/catalog/tayco/detergente-alcalinoclorado.jpg" alt="Detergente alcalino clorado" />
+            <div class="shop-item-body">
+              <h3>Detergente AlcalinoClorado</h3>
+              <p class="price">$27.500 COP</p>
+              <p>Limpieza y desinfección para suciedad orgánica pesada.</p>
+              <button class="btn btn-outline add-cart">Agregar</button>
+            </div>
+          </article>
+          <article class="shop-item reveal">
+            <img src="./assets/catalog/tayco/detergente-todouso.jpg" alt="Detergente todouso tayco" />
+            <div class="shop-item-body">
+              <h3>Detergente Todouso Tayco</h3>
+              <p class="price">$23.900 COP</p>
+              <p>Detergente para pisos, superficies y limpieza general.</p>
+              <button class="btn btn-outline add-cart">Agregar</button>
+            </div>
+          </article>
+          <article class="shop-item reveal-delay">
+            <img src="./assets/catalog/tayco/limpia-juntas.jpg" alt="Finalizador de obra" />
+            <div class="shop-item-body">
+              <h3>Finalizador de Obra</h3>
+              <p class="price">$29.900 COP</p>
+              <p>Elimina residuos de construcción, polvo y suciedad final.</p>
               <button class="btn btn-outline add-cart">Agregar</button>
             </div>
           </article>
@@ -339,8 +375,17 @@
               <button class="btn btn-outline add-cart">Agregar</button>
             </div>
           </article>
+          <article class="shop-item reveal">
+            <img src="./assets/catalog/tayco/lavaloza-liquido.jpg" alt="Lavaloza líquido tayco" />
+            <div class="shop-item-body">
+              <h3>Lavaloza Líquido Tayco</h3>
+              <p class="price">$13.900 COP</p>
+              <p>Lavaloza líquido para grasa y residuos de cocina.</p>
+              <button class="btn btn-outline add-cart">Agregar</button>
+            </div>
+          </article>
           <article class="shop-item reveal-delay">
-            <img src="https://tayco.com.co/wp-content/uploads/2023/05/coffee-product_2-700x792.jpg" alt="Limpia juntas tayco" />
+            <img src="./assets/catalog/tayco/limpia-juntas.jpg" alt="Limpia juntas tayco" />
             <div class="shop-item-body">
               <h3>Limpia Juntas Tayco</h3>
               <p class="price">$22.900 COP</p>
@@ -349,7 +394,16 @@
             </div>
           </article>
           <article class="shop-item reveal-delay">
-            <img src="https://tayco.com.co/wp-content/uploads/2023/05/tayco_4-700x792.jpg" alt="Limpiapisos desinfectante tayco" />
+            <img src="./assets/catalog/tayco/limpiador-acero.jpg" alt="Limpiador de acero inoxidable x 500 ml" />
+            <div class="shop-item-body">
+              <h3>Limpiador de Acero Inoxidable x 500 ml</h3>
+              <p class="price">$26.500 COP</p>
+              <p>Recupera brillo en acero sin dejar manchas.</p>
+              <button class="btn btn-outline add-cart">Agregar</button>
+            </div>
+          </article>
+          <article class="shop-item reveal-delay">
+            <img src="./assets/catalog/tayco/limpiapisos.jpg" alt="Limpiapisos desinfectante tayco" />
             <div class="shop-item-body">
               <h3>Limpiapisos Desinfectante Tayco</h3>
               <p class="price">$20.900 COP</p>
@@ -357,8 +411,17 @@
               <button class="btn btn-outline add-cart">Agregar</button>
             </div>
           </article>
+          <article class="shop-item reveal">
+            <img src="./assets/catalog/tayco/limpiasuperficies-vidrios.jpg" alt="Limpiasuperficies y vidrios tayco" />
+            <div class="shop-item-body">
+              <h3>Limpiasuperficies y Vidrios Tayco</h3>
+              <p class="price">$17.900 COP</p>
+              <p>Limpieza y brillo para vidrio y superficies lisas.</p>
+              <button class="btn btn-outline add-cart">Agregar</button>
+            </div>
+          </article>
           <article class="shop-item reveal-delay">
-            <img src="https://tayco.com.co/wp-content/uploads/2023/05/coffee-product_4-700x792.jpg" alt="Quitagrasa tayco" />
+            <img src="./assets/catalog/tayco/quitagrasa.jpg" alt="Quitagrasa tayco" />
             <div class="shop-item-body">
               <h3>Quitagrasa Tayco</h3>
               <p class="price">$21.500 COP</p>
@@ -366,8 +429,17 @@
               <button class="btn btn-outline add-cart">Agregar</button>
             </div>
           </article>
+          <article class="shop-item reveal">
+            <img src="./assets/catalog/tayco/taycuat.jpg" alt="Taycuat" />
+            <div class="shop-item-body">
+              <h3>Taycuat</h3>
+              <p class="price">$25.900 COP</p>
+              <p>Cuaternario de amonio para desinfección profesional.</p>
+              <button class="btn btn-outline add-cart">Agregar</button>
+            </div>
+          </article>
           <article class="shop-item reveal-delay">
-            <img src="https://tayco.com.co/wp-content/uploads/2023/05/coffee-product_7-700x792.jpg" alt="Lavaropa tayco" />
+            <img src="./assets/catalog/tayco/lavaropa.jpg" alt="Lavaropa tayco" />
             <div class="shop-item-body">
               <h3>Lavaropa Tayco</h3>
               <p class="price">$19.500 COP</p>
@@ -409,8 +481,44 @@
     </div>
   </footer>
 
+  <div class="promo-modal" id="promo-modal" aria-hidden="true">
+    <div class="promo-modal-backdrop" data-close-promo></div>
+    <figure class="promo-modal-card" role="dialog" aria-modal="true" aria-label="Detalle de oferta">
+      <button class="promo-modal-close" type="button" aria-label="Cerrar promoción" data-close-promo>&times;</button>
+      <img id="promo-image" src="./assets/promos/oferta-muebles.jpg" alt="Oferta de limpieza de muebles y enseres" />
+    </figure>
+  </div>
+
+  <div class="product-modal" id="product-modal" aria-hidden="true">
+    <div class="product-modal-backdrop" data-close-modal></div>
+    <article class="product-modal-card" role="dialog" aria-modal="true" aria-labelledby="pm-title">
+      <button class="product-modal-close" type="button" aria-label="Cerrar detalle" data-close-modal>&times;</button>
+      <div class="product-modal-grid">
+        <img id="pm-image" src="" alt="" />
+        <div class="product-modal-copy">
+          <p class="overline">DETALLE DEL PRODUCTO</p>
+          <h3 id="pm-title"></h3>
+          <p id="pm-description"></p>
+
+          <label for="pm-size">Presentación</label>
+          <select id="pm-size"></select>
+
+          <label for="pm-qty">Cantidad</label>
+          <input id="pm-qty" type="number" min="1" value="1" />
+
+          <p class="pm-price" id="pm-price"></p>
+          <div class="hero-actions">
+            <button class="btn btn-solid" type="button" id="pm-add">Agregar al carrito</button>
+            <button class="btn btn-outline" type="button" id="pm-wa">Pedir por WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+
   <script src="./script.js"></script>
 </body>
 </html>
+
 
 

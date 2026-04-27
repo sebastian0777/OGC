@@ -31,6 +31,14 @@ if (navScrim) {
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
+    if (promoModal?.classList.contains('is-open')) {
+      closePromoModal();
+      return;
+    }
+    if (productModal?.classList.contains('is-open')) {
+      closeProductModal();
+      return;
+    }
     closeMobileNav();
   }
 });
@@ -202,18 +210,42 @@ quickButtons.forEach((button) => {
 });
 
 const addCartButtons = document.querySelectorAll('.add-cart');
+const productCards = document.querySelectorAll('.shop-item');
 const cartCount = document.getElementById('cart-count');
 const cartItems = document.getElementById('cart-items');
 const cartTotal = document.getElementById('cart-total');
 const cartClear = document.getElementById('cart-clear');
 const cartCheckout = document.getElementById('cart-checkout');
 const cartState = new Map();
+const productModal = document.getElementById('product-modal');
+const pmImage = document.getElementById('pm-image');
+const pmTitle = document.getElementById('pm-title');
+const pmDescription = document.getElementById('pm-description');
+const pmSize = document.getElementById('pm-size');
+const pmQty = document.getElementById('pm-qty');
+const pmPrice = document.getElementById('pm-price');
+const pmAdd = document.getElementById('pm-add');
+const pmWa = document.getElementById('pm-wa');
+const pmCloseTriggers = document.querySelectorAll('[data-close-modal]');
+const promoModal = document.getElementById('promo-modal');
+const promoImage = document.getElementById('promo-image');
+const promoOpenTriggers = document.querySelectorAll('[data-open-promo]');
+const promoCloseTriggers = document.querySelectorAll('[data-close-promo]');
+let modalProduct = null;
 
 const parsePriceCop = (text) => Number((text || '').replace(/[^\d]/g, '')) || 0;
 
 const formatPriceCop = (value) => {
   const safe = Number.isFinite(value) ? value : 0;
   return `$${safe.toLocaleString('es-CO')} COP`;
+};
+
+const addToCart = (name, price, qty = 1) => {
+  const current = cartState.get(name) || { name, price, qty: 0 };
+  current.qty += qty;
+  current.price = price;
+  cartState.set(name, current);
+  renderCart();
 };
 
 const renderCart = () => {
@@ -248,11 +280,233 @@ addCartButtons.forEach((button) => {
     const priceText = itemCard.querySelector('.price')?.textContent?.trim() || '$0 COP';
     const price = parsePriceCop(priceText);
 
-    const current = cartState.get(name) || { name, price, qty: 0 };
-    current.qty += 1;
-    cartState.set(name, current);
-    renderCart();
+    addToCart(`${name} (Unidad)`, price, 1);
   });
+});
+
+const presentationRules = {
+  'alcohol glicerinado al 70%': [
+    { label: '500 ml', factor: 0.58 },
+    { label: '1 Litro', factor: 1 },
+    { label: 'Galón', factor: 3.7 }
+  ],
+  'alcohol industrial al 95%': [
+    { label: '500 ml', factor: 0.56 },
+    { label: '1 Litro', factor: 1 },
+    { label: 'Galón', factor: 3.6 }
+  ],
+  'desinfectante multisuperficies': [
+    { label: '500 ml', factor: 0.62 },
+    { label: '1 Litro', factor: 1 },
+    { label: 'Galón', factor: 3.8 }
+  ],
+  'crema lavaloza': [
+    { label: '500 g', factor: 0.62 },
+    { label: '1.5 kg', factor: 1 },
+    { label: '3 kg', factor: 1.85 }
+  ],
+  'detergente alcalinoclorado': [
+    { label: '1 Litro', factor: 1 },
+    { label: '3.8 Litros', factor: 3.5 },
+    { label: '20 Litros', factor: 16.8 }
+  ],
+  'detergente todouso tayco': [
+    { label: '1 Litro', factor: 1 },
+    { label: '3.8 Litros', factor: 3.5 },
+    { label: '20 Litros', factor: 16.6 }
+  ],
+  'finalizador de obra': [
+    { label: '500 ml', factor: 0.66 },
+    { label: '1 Litro', factor: 1 },
+    { label: '3.8 Litros', factor: 3.7 }
+  ],
+  'gel antibacterial': [
+    { label: '250 ml', factor: 0.48 },
+    { label: '500 ml', factor: 0.72 },
+    { label: '1 Litro', factor: 1 }
+  ],
+  'hipoclorito de sodio al 13%': [
+    { label: '1 Litro', factor: 1 },
+    { label: '2 Litros', factor: 1.9 },
+    { label: 'Galón', factor: 3.5 }
+  ],
+  'jabón de manos antibacterial': [
+    { label: '500 ml', factor: 0.6 },
+    { label: '1 Litro', factor: 1 },
+    { label: 'Galón', factor: 3.6 }
+  ],
+  'lavaloza líquido tayco': [
+    { label: '500 ml', factor: 0.62 },
+    { label: '1 Litro', factor: 1 },
+    { label: '3.8 Litros', factor: 3.65 }
+  ],
+  'limpia juntas tayco': [
+    { label: '500 ml', factor: 0.64 },
+    { label: '1 Litro', factor: 1 },
+    { label: 'Galón', factor: 3.8 }
+  ],
+  'limpiapisos desinfectante tayco': [
+    { label: '1 Litro', factor: 1 },
+    { label: '2 Litros', factor: 1.88 },
+    { label: 'Galón', factor: 3.6 }
+  ],
+  'limpiador de acero inoxidable x 500 ml': [
+    { label: '500 ml', factor: 1 },
+    { label: '1 Litro', factor: 1.85 }
+  ],
+  'limpiasuperficies y vidrios tayco': [
+    { label: '500 ml', factor: 0.62 },
+    { label: '1 Litro', factor: 1 },
+    { label: '3.8 Litros', factor: 3.7 }
+  ],
+  'quitagrasa tayco': [
+    { label: '500 ml', factor: 0.62 },
+    { label: '1 Litro', factor: 1 },
+    { label: 'Galón', factor: 3.8 }
+  ],
+  'lavaropa tayco': [
+    { label: '1 Litro', factor: 1 },
+    { label: '2 Litros', factor: 1.9 },
+    { label: 'Galón', factor: 3.7 }
+  ],
+  'taycuat': [
+    { label: '1 Litro', factor: 1 },
+    { label: '3.8 Litros', factor: 3.6 },
+    { label: '20 Litros', factor: 17.2 }
+  ]
+};
+
+const getPresentations = (name, basePrice) => {
+  const key = name.toLowerCase();
+  const rules = presentationRules[key] || [{ label: 'Unidad', factor: 1 }];
+  return rules.map((rule) => ({
+    label: rule.label,
+    price: Math.round(basePrice * rule.factor)
+  }));
+};
+
+const closeProductModal = () => {
+  if (!productModal) return;
+  productModal.classList.remove('is-open');
+  productModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+};
+
+const closePromoModal = () => {
+  if (!promoModal) return;
+  promoModal.classList.remove('is-open');
+  promoModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+};
+
+const refreshModalPrice = () => {
+  if (!modalProduct || !pmSize || !pmQty || !pmPrice) return;
+  const selected = modalProduct.presentations[pmSize.selectedIndex] || modalProduct.presentations[0];
+  const qty = Math.max(1, Number(pmQty.value) || 1);
+  pmPrice.textContent = `Total: ${formatPriceCop(selected.price * qty)}`;
+};
+
+const openProductModal = (card) => {
+  if (!productModal || !pmImage || !pmTitle || !pmDescription || !pmSize || !pmQty || !pmPrice) return;
+  const name = card.querySelector('h3')?.textContent?.trim() || 'Producto';
+  const description = card.querySelector('.shop-item-body p:last-of-type')?.textContent?.trim() || '';
+  const price = parsePriceCop(card.querySelector('.price')?.textContent?.trim() || '$0 COP');
+  const img = card.querySelector('img');
+  const imageSrc = img?.getAttribute('src') || '';
+  const imageAlt = img?.getAttribute('alt') || name;
+
+  modalProduct = {
+    name,
+    description,
+    basePrice: price,
+    presentations: getPresentations(name, price)
+  };
+
+  pmImage.src = imageSrc;
+  pmImage.alt = imageAlt;
+  pmTitle.textContent = name;
+  pmDescription.textContent = description;
+  pmQty.value = '1';
+  pmSize.innerHTML = modalProduct.presentations
+    .map((p) => `<option value="${p.label}">${p.label} - ${formatPriceCop(p.price)}</option>`)
+    .join('');
+  refreshModalPrice();
+
+  productModal.classList.add('is-open');
+  productModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+};
+
+productCards.forEach((card) => {
+  card.addEventListener('click', (event) => {
+    if (event.target.closest('.add-cart')) return;
+    card.classList.add('is-opening');
+    window.setTimeout(() => card.classList.remove('is-opening'), 220);
+    openProductModal(card);
+  });
+});
+
+if (pmSize) {
+  pmSize.addEventListener('change', refreshModalPrice);
+}
+
+if (pmQty) {
+  pmQty.addEventListener('input', refreshModalPrice);
+}
+
+if (pmAdd) {
+  pmAdd.addEventListener('click', () => {
+    if (!modalProduct || !pmSize || !pmQty) return;
+    const selected = modalProduct.presentations[pmSize.selectedIndex] || modalProduct.presentations[0];
+    const qty = Math.max(1, Number(pmQty.value) || 1);
+    addToCart(`${modalProduct.name} (${selected.label})`, selected.price, qty);
+    closeProductModal();
+  });
+}
+
+if (pmWa) {
+  pmWa.addEventListener('click', () => {
+    if (!modalProduct || !pmSize || !pmQty) return;
+    const selected = modalProduct.presentations[pmSize.selectedIndex] || modalProduct.presentations[0];
+    const qty = Math.max(1, Number(pmQty.value) || 1);
+    const total = selected.price * qty;
+    const message = [
+      'Hola Oscar, quiero pedir este producto:',
+      `Producto: ${modalProduct.name}`,
+      `Presentación: ${selected.label}`,
+      `Cantidad: ${qty}`,
+      `Total estimado: ${formatPriceCop(total)}`
+    ].join('\n');
+    openWhatsApp(message);
+  });
+}
+
+pmCloseTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', closeProductModal);
+});
+
+promoOpenTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', (event) => {
+    if (event.target.closest('.wa-option')) return;
+    if (!promoModal) return;
+    const promoId = trigger.getAttribute('data-open-promo');
+    if (promoImage) {
+      if (promoId === 'oferta-muebles') {
+        promoImage.src = './assets/promos/oferta-muebles.jpg';
+        promoImage.alt = 'Oferta de limpieza de muebles y enseres';
+      } else if (promoId === 'oferta-detailing') {
+        promoImage.src = './assets/promos/oferta-detailing.jpg';
+        promoImage.alt = 'Oferta de detallado automotriz';
+      }
+    }
+    promoModal.classList.add('is-open');
+    promoModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+  });
+});
+
+promoCloseTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', closePromoModal);
 });
 
 if (cartClear) {
